@@ -230,10 +230,10 @@ async def start_comm(client, message: Message, _):
 @LanguageStart
 async def testbot(client, message: Message, _):
     out = start_pannel(_)
-    initial_reaction = "👍"
-    new_reaction = "🔥"
+    initial_reaction = "⚡"
+    new_reaction = "🪐"
     gen_reaction = "🤡"
-    newo_reaction = "🌝"
+    newo_reaction = "🕊️"
     ren_reaction = "🤩"
     news_reaction = "🥰"
     
