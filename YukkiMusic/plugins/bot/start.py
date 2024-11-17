@@ -49,6 +49,8 @@ async def start_comm(client, message: Message, _):
         name = message.text.split(None, 1)[1]
         if name[0:4] == "help":
             keyboard = help_pannel(_)
+            await message.react("❤️")
+            await message.reply_sticker("CAACAgUAAxkBAAIGJmc4uIA18pKbZrwXou93tqBwDOL-AAJaEwACIK7BVdo1lpGVyOvgNgQ")
             return await message.reply_text(
                 _["help_1"], reply_markup=keyboard
             )
