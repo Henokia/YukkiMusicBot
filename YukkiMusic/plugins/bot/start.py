@@ -49,17 +49,14 @@ async def start_comm(client, message: Message, _):
         name = message.text.split(None, 1)[1]
         if name[0:4] == "help":
             keyboard = help_pannel(_)
-            await message.reply_sticker("CAACAgUAAxkBAAJE8GK4EsoLVZC2SW5W5Q-QAkaoN8f_AAL9BQACiy14VGoQxOCDfE1KKQQ")
-            await message.react("❤️")
-            return await message.reply_photo(
-                       photo=config.START_IMG_URL,
-                       caption=_["help_1"].format(config.SUPPORT_GROUP), reply_markup=keyboard
+            return await message.reply_text(
+                _["help_1"], reply_markup=keyboard
             )
         if name[0:4] == "song":
             return await message.reply_text(_["song_2"])
         if name[0:3] == "sta":
             m = await message.reply_text(
-                f"🥱 ɢᴇᴛᴛɪɴɢ ʏᴏᴜʀ ᴩᴇʀsᴏɴᴀʟ sᴛᴀᴛs ғʀᴏᴍ {config.MUSIC_BOT_NAME} sᴇʀᴠᴇʀ."
+                "🔎 Fetching your personal stats.!"
             )
             stats = await get_userss(message.from_user.id)
             tot = len(stats)
@@ -190,7 +187,7 @@ async def start_comm(client, message: Message, _):
                     config.LOG_GROUP_ID,
                     f"{message.from_user.mention} has just started bot to check <code>VIDEO INFORMATION</code>\n\n**USER ID:** {sender_id}\n**USER NAME:** {sender_name}",
                 )
-     else:
+    else:
         try:
             await app.resolve_peer(OWNER_ID[0])
             OWNER = OWNER_ID[0]
@@ -222,7 +219,7 @@ async def start_comm(client, message: Message, _):
             return await app.send_message(
                 config.LOG_GROUP_ID,
                 f"{message.from_user.mention} has just started Bot.\n\n**USER ID:** {sender_id}\n**USER NAME:** {sender_name}",
-             )
+            )
 
 
 @app.on_message(
