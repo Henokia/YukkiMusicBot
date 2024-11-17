@@ -232,12 +232,16 @@ async def testbot(client, message: Message, _):
     out = start_pannel(_)
     initial_reaction = "👍"
     new_reaction = "🔥"
+    initial_reaction = "🤡"
+    new_reaction = "🌝"
+    initial_reaction = "🤩"
+    new_reaction = "🥰"
     
     # Send the initial reaction
     await message.react(initial_reaction)
 
     # Wait for a short period before changing the reaction
-    await asyncio.sleep(2)
+    await asyncio.sleep(0.01)
 
     # Remove the initial reaction (This is done by reacting with a blank emoji)
     await message.react("")  # This removes the previous reaction
