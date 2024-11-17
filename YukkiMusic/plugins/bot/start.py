@@ -232,13 +232,19 @@ async def testbot(client, message: Message, _):
     out = start_pannel(_)
     initial_reaction = "👍"
     new_reaction = "🔥"
-    initial_reaction = "🤡"
-    new_reaction = "🌝"
-    initial_reaction = "🤩"
-    new_reaction = "🥰"
+    gen_reaction = "🤡"
+    newo_reaction = "🌝"
+    ren_reaction = "🤩"
+    news_reaction = "🥰"
     
     # Send the initial reaction
     await message.react(initial_reaction)
+
+    # Send the initial reaction
+    await message.react(gen_reaction)
+
+    # Send the initial reaction
+    await message.react(ren_reaction)
 
     # Wait for a short period before changing the reaction
     await asyncio.sleep(0.01)
@@ -248,6 +254,8 @@ async def testbot(client, message: Message, _):
 
     # Add the new reaction
     await message.react(new_reaction)
+    await message.react(newo_reaction)
+    await message.react(news_reaction)
     await message.reply_sticker("CAACAgUAAxkBAAIGJmc4uIA18pKbZrwXou93tqBwDOL-AAJaEwACIK7BVdo1lpGVyOvgNgQ")
     return await message.reply_text(
         _["start_1"].format(
