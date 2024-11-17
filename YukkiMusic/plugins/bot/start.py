@@ -227,19 +227,31 @@ async def start_comm(client, message: Message, _):
                 await vips.edit_text("**⚡ѕтαятιиg....**")
                 await message.reply_sticker("CAACAgUAAxkBAAJE8GK4EsoLVZC2SW5W5Q-QAkaoN8f_AAL9BQACiy14VGoQxOCDfE1KKQQ")
                 await message.react("❤️")
-                await message.reply_photo(
-                    photo=config.START_IMG_URL,
-                    caption=_["start_2"].format(
-                        config.MUSIC_BOT_NAME
-                    ),
-                    reply_markup=InlineKeyboardMarkup(out),
+                if message.chat.photo:
+
+                userss_photo = await app.download_media(
+                    message.chat.photo.big_file_id,
                 )
+            else:
+                userss_photo = "assets/nodp.png"
+            if userss_photo:
+                chat_photo = userss_photo
+            chat_photo = userss_photo if userss_photo else START_IMG_URL
+
+        except AttributeError:
+            chat_photo = "assets/nodp.png"
+        await vips.delete()
+        await message.reply_photo(
+            photo=chat_photo,
+            caption=_["start_2"].format(message.from_user.mention, app.mention),
+            reply_markup=InlineKeyboardMarkup(out),
+        )
         if await is_on_off(config.LOG):
             sender_id = message.from_user.id
             sender_name = message.from_user.first_name
             return await app.send_message(
                 config.LOG_GROUP_ID,
-                f"{message.from_user.mention} has just started Bot.\n\n**USER ID:** {sender_id}\n**USER NAME:** {sender_name}",
+                f"{message.from_user.mention} ʜᴀs sᴛᴀʀᴛᴇᴅ ʙᴏᴛ. \n\n**ᴜsᴇʀ ɪᴅ :** {sender_id}\n**ᴜsᴇʀ ɴᴀᴍᴇ:** {sender_name}",
             )
 
 
