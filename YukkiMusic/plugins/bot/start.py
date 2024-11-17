@@ -231,10 +231,11 @@ async def start_comm(client, message: Message, _):
 async def testbot(client, message: Message, _):
     out = start_pannel(_)
     await message.react("⚡")
-    await asyncio.sleep(1)  # Wait for 2 seconds
+    await asyncio.sleep(0.001)  # Wait for 2 seconds
     await message.react("🕊️")
-    await asyncio.sleep(1)  # Wait for 2 seconds
+    await asyncio.sleep(0.001)  # Wait for 2 seconds
     await message.react("🪐")
+    await asyncio.sleep(0.001)  # Wait for 2 seconds
     await message.reply_sticker("CAACAgUAAxkBAAIGJmc4uIA18pKbZrwXou93tqBwDOL-AAJaEwACIK7BVdo1lpGVyOvgNgQ")
     return await message.reply_text(
         _["start_1"].format(
