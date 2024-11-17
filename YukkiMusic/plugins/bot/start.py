@@ -199,7 +199,9 @@ async def start_comm(client, message: Message, _):
         out = private_panel(_, app.username, OWNER)
         if config.START_IMG_URL:
             try:
-                await message.reply_photo(
+              await message.reply_sticker("CAACAgUAAxkBAAJE8GK4EsoLVZC2SW5W5Q-QAkaoN8f_AAL9BQACiy14VGoQxOCDfE1KKQQ")
+              await message.react("❤️")
+              await message.reply_photo(
                     photo=config.START_IMG_URL,
                     caption=_["start_2"].format(
                         config.MUSIC_BOT_NAME
