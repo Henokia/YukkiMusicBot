@@ -230,14 +230,6 @@ async def start_comm(client, message: Message, _):
 @LanguageStart
 async def testbot(client, message: Message, _):
     out = start_pannel(_)
-    await message.react("❤️")
-    await asyncio.sleep(1)  # Wait for 2 seconds
-    await message.react("🔥")
-    await asyncio.sleep(1)  # Wait for 2 seconds
-    await message.react("😂")
-    await asyncio.sleep(1)  # Wait for 2 seconds
-    await message.react("😆")
-    await asyncio.sleep(1)
     initial_reaction = "👍"
     new_reaction = "🔥"
     
