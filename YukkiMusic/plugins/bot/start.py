@@ -190,69 +190,39 @@ async def start_comm(client, message: Message, _):
                     config.LOG_GROUP_ID,
                     f"{message.from_user.mention} has just started bot to check <code>VIDEO INFORMATION</code>\n\n**USER ID:** {sender_id}\n**USER NAME:** {sender_name}",
                 )
-        else:
-
+   else:
+        try:
+            await app.resolve_peer(OWNER_ID[0])
+            OWNER = OWNER_ID[0]
+        except:
+            OWNER = None
+        out = private_panel(_, app.username, OWNER)
+        if config.START_IMG_URL:
             try:
-                out = music_start_panel(_)
-                vip = await message.reply_text(f"**ᴅιиg ᴅσиg ꨄ︎❣️.....**")
-                await vip.edit_text(f"**ᴅιиg ᴅσиg ꨄ︎.❣️....**")
-                await vip.edit_text(f"**ᴅιиg ᴅσиg ꨄ︎..❣️...**")
-                await vip.edit_text(f"**ᴅιиg ᴅσиg ꨄ︎...❣️..**")
-                await vip.edit_text(f"**ᴅιиg ᴅσиg ꨄ︎....❣️.**")
-                await vip.edit_text(f"**ᴅιиg ᴅσиg ꨄ︎.....❣️**")
-
-                await vip.delete()
-                vips = await message.reply_text("**⚡ѕ**")
-                await asyncio.sleep(0.1)
-                await vips.edit_text("**⚡ѕт**")
-                # await asyncio.sleep(0.1)
-                await vips.edit_text("**⚡ѕтα**")
-                #  await asyncio.sleep(0.1)
-                await vips.edit_text("**⚡ѕтαя**")
-                # await asyncio.sleep(0.1)
-                await vips.edit_text("**⚡ѕтαят**")
-                # await asyncio.sleep(0.1)
-                await vips.edit_text("**⚡ѕтαятι**")
-                # await asyncio.sleep(0.1)
-                await vips.edit_text("**⚡ѕтαятιи**")
-                # await asyncio.sleep(0.1)
-                await vips.edit_text("**⚡ѕтαятιиg**")
-                # await asyncio.sleep(0.1)
-                await vips.edit_text("**⚡ѕтαятιиg.**")
-                await asyncio.sleep(0.1)
-                await vips.edit_text("**⚡ѕтαятιиg....**")
-                await asyncio.sleep(0.1)
-                await vips.edit_text("**⚡ѕтαятιиg.**")
-                await asyncio.sleep(0.1)
-                await vips.edit_text("**⚡ѕтαятιиg....**")
-                await message.reply_sticker("CAACAgUAAxkBAAJE8GK4EsoLVZC2SW5W5Q-QAkaoN8f_AAL9BQACiy14VGoQxOCDfE1KKQQ")
-                await message.react("❤️")
-                if message.chat.photo:
-
-                    userss_photo = await app.download_media(
-                    message.chat.photo.big_file_id,
+                await message.reply_photo(
+                    photo=config.START_IMG_URL,
+                    caption=_["start_2"].format(
+                        config.MUSIC_BOT_NAME
+                    ),
+                    reply_markup=InlineKeyboardMarkup(out),
                 )
-            else:
-                userss_photo = "assets/nodp.png"
-            if userss_photo:
-                chat_photo = userss_photo
-            chat_photo = userss_photo if userss_photo else START_IMG_URL
-
-        except AttributeError:
-            chat_photo = "assets/nodp.png"
-        await vips.delete()
-        await message.reply_photo(
-            photo=chat_photo,
-            caption=_["start_2"].format(message.from_user.mention, app.mention),
-            reply_markup=InlineKeyboardMarkup(out),
-        )
+            except:
+                await message.reply_text(
+                    _["start_2"].format(config.MUSIC_BOT_NAME),
+                    reply_markup=InlineKeyboardMarkup(out),
+                )
+        else:
+            await message.reply_text(
+                _["start_2"].format(config.MUSIC_BOT_NAME),
+                reply_markup=InlineKeyboardMarkup(out),
+            )
         if await is_on_off(config.LOG):
             sender_id = message.from_user.id
             sender_name = message.from_user.first_name
             return await app.send_message(
                 config.LOG_GROUP_ID,
-                f"{message.from_user.mention} ʜᴀs sᴛᴀʀᴛᴇᴅ ʙᴏᴛ. \n\n**ᴜsᴇʀ ɪᴅ :** {sender_id}\n**ᴜsᴇʀ ɴᴀᴍᴇ:** {sender_name}",
-            )
+                f"{message.from_user.mention} has just started Bot.\n\n**USER ID:** {sender_id}\n**USER NAME:** {sender_name}",
+             )
 
 
 @app.on_message(
