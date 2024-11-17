@@ -200,11 +200,12 @@ async def start_comm(client, message: Message, _):
         if config.START_IMG_URL:
             try:
                 vip = await message.reply_text(f"**ᴅιиg ᴅσиg ꨄ︎❣️.....**")
-            await vip.edit_text(f"**ᴅιиg ᴅσиg ꨄ︎.❣️....**")
-            await vip.edit_text(f"**ᴅιиg ᴅσиg ꨄ︎..❣️...**")
-            await vip.edit_text(f"**ᴅιиg ᴅσиg ꨄ︎...❣️..**")
-            await vip.edit_text(f"**ᴅιиg ᴅσиg ꨄ︎....❣️.**")
-            await vip.edit_text(f"**ᴅιиg ᴅσиg ꨄ︎.....❣️**")
+                await vip.edit_text(f"**ᴅιиg ᴅσиg ꨄ︎.❣️....**")
+                await vip.edit_text(f"**ᴅιиg ᴅσиg ꨄ︎..❣️...**")
+                await vip.edit_text(f"**ᴅιиg ᴅσиg ꨄ︎...❣️..**")
+                await vip.edit_text(f"**ᴅιиg ᴅσиg ꨄ︎....❣️.**")
+                await vip.edit_text(f"**ᴅιиg ᴅσиg ꨄ︎.....❣️**")
+                await vip.delete()
                 await message.reply_sticker("CAACAgUAAxkBAAJE8GK4EsoLVZC2SW5W5Q-QAkaoN8f_AAL9BQACiy14VGoQxOCDfE1KKQQ")
                 await message.react("❤️")
                 await message.reply_photo(
