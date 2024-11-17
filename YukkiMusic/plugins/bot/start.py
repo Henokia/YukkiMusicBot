@@ -190,10 +190,10 @@ async def start_comm(client, message: Message, _):
                     config.LOG_GROUP_ID,
                     f"{message.from_user.mention} has just started bot to check <code>VIDEO INFORMATION</code>\n\n**USER ID:** {sender_id}\n**USER NAME:** {sender_name}",
                 )
-    else:
+        else:
 
-        try:
-            out = music_start_panel(_)
+            try:
+                out = music_start_panel(_)
                 vip = await message.reply_text(f"**ᴅιиg ᴅσиg ꨄ︎❣️.....**")
                 await vip.edit_text(f"**ᴅιиg ᴅσиg ꨄ︎.❣️....**")
                 await vip.edit_text(f"**ᴅιиg ᴅσиg ꨄ︎..❣️...**")
