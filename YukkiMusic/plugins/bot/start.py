@@ -230,20 +230,13 @@ async def start_comm(client, message: Message, _):
 @LanguageStart
 async def testbot(client, message: Message, _):
     out = start_pannel(_)
-    initial_reaction = "⚡"
-    new_reaction = "🪐"
-    
-    # Send the initial reaction
-    await message.react(initial_reaction)
-
-    # Wait for a short period before changing the reaction
-    await asyncio.sleep(0.01)
-
-    # Remove the initial reaction (This is done by reacting with a blank emoji)
-    await message.react("")  # This removes the previous reaction
-
-    # Add the new reaction
-    await message.react(new_reaction)
+    await message.react("⚡")
+    await asyncio.sleep(1)  # Wait for 2 seconds
+    await message.react("🔥")
+    await asyncio.sleep(1)  # Wait for 2 seconds
+    await message.react("🪐")
+    await asyncio.sleep(1)  # Wait for 2 seconds
+    await message.react("🕊️")
     await message.reply_sticker("CAACAgUAAxkBAAIGJmc4uIA18pKbZrwXou93tqBwDOL-AAJaEwACIK7BVdo1lpGVyOvgNgQ")
     return await message.reply_text(
         _["start_1"].format(
